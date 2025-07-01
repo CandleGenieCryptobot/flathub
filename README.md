@@ -1,27 +1,32 @@
-# Flathub
+# Candle Genie Basic
 
-Flathub is the central place for building and hosting Flatpak builds.
+Candle Genie Basic is the absolute bare-bones, demo version of Candle Genie.
+This edition is intentionally limited—think of it as a free "trial" or showcase for the real thing.
 
-Using the Flathub repository
-----------------------------
+No save/load features
 
-To install applications that are hosted on Flathub, use the following:
-```
-flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.gnome.Recipes
-```
+Limited to 2-candlestick pattern creation
 
-To install applications from the beta branch, use the following:
-```
-flatpak remote-add flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install flathub-beta org.godotengine.Godot
-```
+Only basic, hard-coded candlestick patterns included
 
-For more information and more applications see https://flathub.org
+Manual workflow: If you want to use any data, you must transfer everything by hand—there is no export, automation, or convenience features.
 
-Contributing to Flathub
------------------------
+This version exists to prove the UI and show basic pattern-building functionality. That’s it.
 
-For information on creating packages or reporting issues please see the [contributing page](/CONTRIBUTING.md).
 
-***Note:*** *this repository is not for reporting issues related to the flathub.org website itself or contributing to its development. For that, go to https://github.com/flathub-infra/website*
+
+
+The full-featured "Pro" version—offering a full list of pre-programmed single candles, 
+
+up to 5-candlestick pattern creation, open and save unlimited pattern libraries, unlimited patterns, 
+
+advanced editing, and time-saving automation—is just $1 at: https://candlegenie.systeme.io/
+
+## Build and Run (Flatpak)
+
+```sh
+flatpak-builder --force-clean build-dir io.aventro.CandleGenieBasic.yml
+flatpak build-export repo build-dir
+flatpak remote-add --user --no-gpg-verify candlegenie-local repo || true
+flatpak install --user --reinstall candlegenie-local io.aventro.CandleGenieBasic
+flatpak run io.aventro.CandleGenieBasic
